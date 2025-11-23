@@ -40,7 +40,11 @@ const Quiz = () => {
         <Questionlist question={question[currentQuestionIndex].question}
         option={question[currentQuestionIndex].option} handleClick={handleClick}currentAnswer={currentAnswer}></Questionlist>
         <button disabled={currentAnswer===null} className={currentAnswer===null ?'button-disable':'button'}onClick={handleNextQue}>Next Question</button>
-     </div></center> :<center><div><h2>Your Score is :{score}</h2></div></center> }
+     </div></center> :<center><div><h2>Your Score is :{score}</h2></div><div>
+        <button onClick={() => window.location.reload()}  className='play-again'>
+  Play Again</button>
+
+        </div></center> }
      
     </div>
   )
