@@ -42,3 +42,11 @@
     background-color: lightblue;
 
   }
+  .prev-btn{
+      background-color: #0dbc72;
+    border-radius: 20px;
+    width: 20%;
+    cursor: pointer;
+    cursor: pointer;
+
+  }

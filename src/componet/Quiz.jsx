@@ -23,6 +23,7 @@ const Quiz = () => {
     const [currentQuestionIndex,setCurrentQuestion]=useState(0);
     const [currentAnswer,SetCurrentAnwer]=useState(null);
     const [score,Setscore]=useState(0);
+    const [prevQue,Setprevque]=useState(null);
     
     const handleClick=(option)=>{
          SetCurrentAnwer(option);
@@ -34,12 +35,27 @@ const Quiz = () => {
         setCurrentQuestion(currentQuestionIndex + 1);
         SetCurrentAnwer(null);
     }
+
+    const handlePrevQue=()=>{
+
+     setCurrentQuestion(currentQuestionIndex -1);   
+    }
+
+
+
   return (
     <div>
+        {currentQuestionIndex}
         {currentQuestionIndex<question.length ? <center><div>
         <Questionlist question={question[currentQuestionIndex].question}
         option={question[currentQuestionIndex].option} handleClick={handleClick}currentAnswer={currentAnswer}></Questionlist>
-        <button disabled={currentAnswer===null} className={currentAnswer===null ?'button-disable':'button'}onClick={handleNextQue}>Next Question</button>
+
+        {/*Previouse Button to see last question...........  */}
+        {
+            (currentQuestionIndex!=0) ? <button onClick={handlePrevQue} className='prev-btn'>Previouse Question</button>:""
+        }
+    
+    <button disabled={currentAnswer===null} className={currentAnswer===null ?'button-disable':'button'}onClick={handleNextQue}>Next Question</button>       
      </div></center> :<center><div><h2>Your Score is :{score}</h2></div><div>
         <button onClick={() => window.location.reload()}  className='play-again'>
   Play Again</button>
